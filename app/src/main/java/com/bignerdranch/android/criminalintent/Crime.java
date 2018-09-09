@@ -9,14 +9,19 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+    private String mSuspect;
 
     /**
      * The default constructor sets both the ID of the crime and the date
      * The user will fill the date by typing it
      */
     public Crime() {
-        mId = UUID.randomUUID();
-        mDate = new Date(); // this initializes mDate with the current date
+        this(UUID.randomUUID());
+    }
+
+    public Crime(UUID id) {
+        mId = id;
+        mDate = new Date();
     }
 
     /**
@@ -74,4 +79,30 @@ public class Crime {
     public void setSolved(boolean solved) {
         mSolved = solved;
     }
+
+    /**
+     *
+     * @return
+     */
+    public String getSuspect() {
+        return mSuspect;
+    }
+
+    /**
+     *
+     * @param suspect
+     */
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getPhotoFilename() {
+        return "IMG_" + getId().toString() + ".jpg";
+    }
+
+
 }
